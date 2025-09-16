@@ -2,7 +2,7 @@
 # Copy this file to terraform.tfvars and customize for your environment
 
 # Basic Configuration
-aws_region   = "us-west-2" # Change to your preferred region
+aws_region   = "us-east-1" # Correct region for our deployment
 environment  = "production"
 cluster_name = "openemr-eks"
 
@@ -117,5 +117,5 @@ openemr_version = "7.0.3" # OpenEMR version to deploy
 
 # OpenEMR Feature Configuration (SECURITY: Disabled by default)
 # Only enable these features if specifically needed for your use case
-enable_openemr_api    = false # Enable REST API and FHIR endpoints
-enable_patient_portal = false # Enable patient portal functionality
+enable_openemr_api    = true  # Enable REST API and FHIR endpoints for BCBSMA EDI
+enable_patient_portal = true  # Enable patient portal functionality for BCBSMA integration
