@@ -13,7 +13,7 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 # Configuration
-DOCKER_REGISTRY="openemr/openemr"
+DOCKER_REGISTRY="abwalnuthealth/openemr"
 DEFAULT_TAGS_TO_SHOW=10
 
 # Help function

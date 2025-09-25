@@ -358,7 +358,7 @@ See [deployment.yaml](../k8s/deployment.yaml) for correct configurations.
 
       containers:
       - name: openemr
-        image: openemr/openemr:${OPENEMR_VERSION}
+        image: abwalnuthealth/openemr:latest
         imagePullPolicy: IfNotPresent
         securityContext:
           allowPrivilegeEscalation: true

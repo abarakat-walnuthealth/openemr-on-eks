@@ -15,6 +15,18 @@ module "vpc" {
   enable_dns_hostnames = true
   enable_dns_support   = true
 
+  # Use BCBSMA-whitelisted Elastic IPs for NAT Gateways
+  # Primary: 54.84.201.131 (eipalloc-0f3ddbcc5a9cd6e43) - whitelisted by BCBSMA
+  # Additional IPs for 3 NAT gateways - request BCBSMA to whitelist:
+  # - 174.129.195.105 (eipalloc-02cedae3424465ea2)
+  # - 18.208.4.130 (eipalloc-0a5b6152c32fe4240)
+  reuse_nat_ips       = true  # Required: Don't create new EIPs
+  external_nat_ip_ids = [
+    "eipalloc-0f3ddbcc5a9cd6e43",  # 54.84.201.131 (BCBSMA whitelisted)
+    "eipalloc-02cedae3424465ea2",  # 174.129.195.105 (request BCBSMA whitelist)
+    "eipalloc-0a5b6152c32fe4240"   # 18.208.4.130 (request BCBSMA whitelist)
+  ]
+
   # Enable VPC Flow Logs for regulatory compliance
   enable_flow_log                      = true
   create_flow_log_cloudwatch_iam_role  = true

@@ -403,8 +403,11 @@ fi
 # Insert the environment variables into the deployment manifest
 if [ -n "$OPENEMR_ENV_VARS" ]; then
     # Find the line with the comment about conditional environment variables and insert after it
-    sed -i.bak "/# OPENEMR_SETTING_rest_portal_api will be added if portal is enabled/a\\
-$OPENEMR_ENV_VARS" deployment.yaml
+    # Use a temporary file approach for cross-platform compatibility
+    TEMP_ENV_FILE=$(mktemp)
+    echo "$OPENEMR_ENV_VARS" > "$TEMP_ENV_FILE"
+    sed -i.bak "/# OPENEMR_SETTING_rest_portal_api will be added if portal is enabled/r $TEMP_ENV_FILE" deployment.yaml
+    rm "$TEMP_ENV_FILE"
 fi
 sed -i.bak "s/\${AWS_ACCOUNT_ID}/$AWS_ACCOUNT_ID/g" logging.yaml
 sed -i.bak "s/\${AWS_REGION}/$AWS_REGION/g" logging.yaml

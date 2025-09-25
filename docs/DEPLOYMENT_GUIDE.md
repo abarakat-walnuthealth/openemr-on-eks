@@ -576,7 +576,7 @@ OpenEMR version is always specified as `${OPENEMR_VERSION}` in manifests and sub
 
 ```yaml
 # In deployment.yaml
-image: openemr/openemr:${OPENEMR_VERSION}
+image: abwalnuthealth/openemr:latest
 ```
 
 **Benefits:**

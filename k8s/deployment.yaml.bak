@@ -169,19 +169,6 @@ spec:
           value: "3"
         - name: OPENEMR_SETTING_rest_portal_api
           value: "1"
-
-        - name: OPENEMR_SETTING_rest_api
-          value: "1"
-        - name: OPENEMR_SETTING_rest_fhir_api
-          value: "1"
-        - name: OPENEMR_SETTING_portal_onsite_two_enable
-          value: "1"
-        - name: OPENEMR_SETTING_portal_onsite_two_address
-          value: "https:///portal"
-        - name: OPENEMR_SETTING_ccda_alt_service_enable
-          value: "3"
-        - name: OPENEMR_SETTING_rest_portal_api
-          value: "1"
         resources:
           requests:
             cpu: 250m

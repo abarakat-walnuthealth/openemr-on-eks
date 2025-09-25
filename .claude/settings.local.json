@@ -1,0 +1,36 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(./validate-deployment.sh)",
+      "Bash(terraform init:*)",
+      "WebSearch",
+      "Bash(aws s3 ls:*)",
+      "Bash(for sg in sg-0834e013aea003b99 sg-08dceb8bead352f82 sg-05c9262341bf4901b sg-0b13ced633212b01b)",
+      "Bash(do)",
+      "Bash(aws ec2 describe-network-interfaces:*)",
+      "Bash(done)",
+      "Bash(aws elbv2 describe-load-balancers:*)",
+      "Bash(__NEW_LINE__ echo -e \"\\nChecking for security group rules referencing these groups...\")",
+      "Bash(echo:*)",
+      "Bash(aws ec2 describe-security-groups:*)",
+      "Bash(aws eks list-clusters:*)",
+      "Bash(aws rds describe-db-clusters:*)",
+      "Bash(aws iam list-roles:*)",
+      "Bash(for region in us-west-1 us-west-2 us-east-2)",
+      "Bash(aws ec2 describe-instances:*)",
+      "Bash(aws kms list-aliases:*)",
+      "Bash(aws ec2 describe-vpcs:*)",
+      "Bash(aws ec2 describe-nat-gateways:*)",
+      "Bash(aws ec2 describe-internet-gateways:*)",
+      "Bash(aws wafv2 list-web-acls:*)",
+      "Bash(aws ec2 describe-addresses:*)",
+      "Bash(for nat_gw in nat-043f6a7df652ce11c nat-060f0fe57bb661bd6 nat-0027ffb07f645fee5 nat-011ebf213fde891ae nat-0301ef54b8d76ee26 nat-03da4a3eb9eec89d4)",
+      "Bash(aws ec2 delete-nat-gateway:*)",
+      "Bash(aws kms list-keys:*)",
+      "Bash(xargs:*)",
+      "Bash(aws ec2 describe-subnets:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
