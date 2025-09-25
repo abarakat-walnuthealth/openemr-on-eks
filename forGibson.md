@@ -18,7 +18,7 @@ This document outlines the critical gaps between our current AWS OpenEMR deploym
 
 ### AWS Production Environment
 - **Infrastructure:** EKS Auto Mode cluster with Aurora Serverless V2, Valkey cache, EFS storage
-- **Application:** Standard `openemr/openemr:7.0.3` Docker image from Docker Hub
+- **Application:** Standard `abwalnuthealth/openemr:latest` Docker image from Docker Hub
 - **Status:** Fully operational infrastructure, lacking custom EDI functionality
 - **Deployment:** Originally deployed from different repository instance (no Terraform state in current repo)
 
@@ -40,7 +40,7 @@ Local Development:           AWS Production:
 ## Identified Critical Issues
 
 ### 1. Code Deployment Gap
-- **Issue:** AWS uses `openemr/openemr:7.0.3` from Docker Hub (standard image)
+- **Issue:** AWS uses `abwalnuthealth/openemr:latest` from Docker Hub (standard image)
 - **Impact:** Cannot generate properly formatted 837P files for BCBSMA
 - **Evidence:** Local testing shows formatting differences that require custom code
 
@@ -124,7 +124,7 @@ aws ecr get-login-password --region us-west-2 | docker login --username AWS --pa
 
 #### TODO 1.2: Create Custom Docker Image Structure
 - [ ] Create `custom-image/` directory in this repository
-- [ ] Create `custom-image/Dockerfile` extending `openemr/openemr:7.0.3`
+- [ ] Create `custom-image/Dockerfile` extending `abwalnuthealth/openemr:latest`
 - [ ] Create `custom-image/customizations/` directory structure
 - [ ] Create `custom-image/build.sh` script for automated builds
 
@@ -185,7 +185,7 @@ docker run -p 8080:80 -e MYSQL_HOST=localhost walnut-openemr:v1.0.0
 **Configuration Change:**
 ```yaml
 # Change from:
-image: openemr/openemr:${OPENEMR_VERSION}
+image: abwalnuthealth/openemr:latest
 # To:
 image: <account-id>.dkr.ecr.us-west-2.amazonaws.com/walnut-openemr:v1.0.0
 ```
@@ -309,7 +309,7 @@ aws ec2 describe-nat-gateways --filter "Name=vpc-id,Values=<vpc-id>" --query 'Na
 
 ### Docker Image Build Process
 ```dockerfile
-FROM openemr/openemr:7.0.3
+FROM abwalnuthealth/openemr:latest
 
 # Copy custom EDI modifications
 COPY ./customizations/library/ /var/www/localhost/htdocs/openemr/library/

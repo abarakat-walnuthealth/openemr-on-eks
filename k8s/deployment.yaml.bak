@@ -37,7 +37,7 @@ spec:
 
       containers:
       - name: openemr
-        image: openemr/openemr:7.0.3
+        image: abwalnuthealth/openemr:latest
         imagePullPolicy: IfNotPresent
         securityContext:
           allowPrivilegeEscalation: true
